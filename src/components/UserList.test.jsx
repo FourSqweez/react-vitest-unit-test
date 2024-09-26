@@ -32,4 +32,17 @@ describe("Test UserList component", () => {
       expect(screen.getByText("0987654321")).toBeInTheDocument();
     });
   });
+
+  it("filters users based on search input", async () => {
+    axios.get.mockResolvedValue({ data: mockUsers });
+    render(<UserList />);
+
+    await waitFor(() => {
+      fireEvent.change(screen.getByPlaceholderText("Search by name or email"), {
+        target: { value: "John" },
+      });
+      expect(screen.getByText("John Doe")).toBeInTheDocument();
+      expect(screen.queryByText("Jane Doe")).not.toBeInTheDocument();
+    });
+  });
 });

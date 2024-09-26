@@ -1,4 +1,5 @@
 import Counter from "./components/Counter";
+import RegisterForm from "./components/RegisterForm";
 import UserList from "./components/UserList";
 
 function App() {
@@ -18,6 +19,10 @@ function App() {
       <div>
         <h1>Test User list</h1>
         <UserList />
+      </div>
+      <div>
+        <h1>Test Register Form</h1>
+        <RegisterForm />
       </div>
     </div>
   );

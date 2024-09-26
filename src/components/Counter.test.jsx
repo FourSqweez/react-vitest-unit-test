@@ -6,4 +6,8 @@ describe("Counter Component", () => {
   beforeEach(() => {
     render(<Counter />);
   });
+
+  it("should render 'counter'", () => {
+    expect(screen.getByText(/Counter:/)).toBeInTheDocument();
+  });
 });

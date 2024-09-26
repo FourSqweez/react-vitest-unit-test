@@ -15,4 +15,9 @@ describe("Counter Component", () => {
     fireEvent.click(screen.getByText("Increment"));
     expect(screen.getByText("Counter: 1")).toBeInTheDocument();
   });
+
+  it("decrements counter", () => {
+    fireEvent.click(screen.getByText("Decrement"));
+    expect(screen.getByText("Counter: -1")).toBeInTheDocument();
+  });
 });

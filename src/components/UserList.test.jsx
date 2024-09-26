@@ -45,4 +45,23 @@ describe("Test UserList component", () => {
       expect(screen.queryByText("Jane Doe")).not.toBeInTheDocument();
     });
   });
+
+  it("handles API failure without problems and still renders", async () => {
+    axios.get.mockRejectedValue(new Error("API call failed"));
+    const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+
+    render(<UserList />);
+
+    await waitFor(() => {
+      expect(consoleSpy).toHaveBeenCalledWith(
+        "Error fetching users:",
+        expect.any(Error)
+      );
+      expect(
+        screen.getByPlaceholderText("Search by name or email")
+      ).toBeInTheDocument();
+    });
+
+    consoleSpy.mockRestore();
+  });
 });

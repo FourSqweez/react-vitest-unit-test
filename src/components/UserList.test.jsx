@@ -21,4 +21,15 @@ describe("Test UserList component", () => {
       phoneNumber: "0987654321",
     },
   ];
+
+  it("renders the table successfully when API call succeeds", async () => {
+    axios.get.mockResolvedValue({ data: mockUsers });
+    render(<UserList />);
+
+    await waitFor(() => {
+      expect(screen.getByText("John Doe")).toBeInTheDocument();
+      expect(screen.getByText("jane@example.com")).toBeInTheDocument();
+      expect(screen.getByText("0987654321")).toBeInTheDocument();
+    });
+  });
 });

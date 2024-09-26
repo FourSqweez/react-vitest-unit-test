@@ -10,4 +10,9 @@ describe("Counter Component", () => {
   it("should render 'counter'", () => {
     expect(screen.getByText(/Counter:/)).toBeInTheDocument();
   });
+
+  it("increments counter", () => {
+    fireEvent.click(screen.getByText("Increment"));
+    expect(screen.getByText("Counter: 1")).toBeInTheDocument();
+  });
 });

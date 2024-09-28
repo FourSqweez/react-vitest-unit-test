@@ -58,8 +58,8 @@ export default function RegisterForm() {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit} className="max-w-sm mx-auto my-8">
+    <div className="w-80">
+      <form onSubmit={handleSubmit} className="max-w-sm mx-auto my-8 w-full">
         <h1 className="text-3xl mb-2">Register Form</h1>
         <div className="mb-6">
           <label
@@ -124,6 +124,6 @@ export default function RegisterForm() {
           Submit
         </button>
       </form>
-    </>
+    </div>
   );
 }

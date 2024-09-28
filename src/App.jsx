@@ -1,17 +1,11 @@
 import Counter from "./components/Counter";
 import RegisterForm from "./components/RegisterForm";
 import UserList from "./components/UserList";
+import "./index.css";
 
 function App() {
   return (
-    <div
-      style={{
-        display: "flex",
-        height: "100vh",
-        gap: "24px",
-        margin: "24px",
-        overflow: "hidden",
-      }}>
+    <div className="flex w-screen justify-around">
       <div>
         <h1>Test Counter</h1>
         <Counter />
